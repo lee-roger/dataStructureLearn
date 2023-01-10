@@ -6,6 +6,7 @@ public class SparseArray {
         int[][] chessArr1 = new int[11][11];
         chessArr1[1][2] = 1;
         chessArr1[2][4] = 2;
+        chessArr1[3][4] = 5;
 
         for(int[] row : chessArr1){
             for(int data : row){
@@ -14,10 +15,22 @@ public class SparseArray {
             System.out.println();
         }
 
+        System.out.println();
 
+        //将原始数组转化成稀疏数组
         int[][] sparseArray = arrayToSparseArray(chessArr1);
-
         for(int[] row : sparseArray){
+            for(int data : row){
+                System.out.printf("%d\t",data);
+            }
+            System.out.println();
+        }
+
+        System.out.println();
+
+        //将稀疏数组转化为原始数组
+        int[][] array = sparseArrayToArray(sparseArray);
+        for(int[] row : array){
             for(int data : row){
                 System.out.printf("%d\t",data);
             }
@@ -68,5 +81,23 @@ public class SparseArray {
         }
 
         return sparseArray;
+    }
+
+
+    //稀疏数组恢复为原始数组
+    public static int[][] sparseArrayToArray(int[][] sparseArray){
+        if(sparseArray == null){
+            return null;
+        }
+
+        //从稀疏数组中取出原始数组的大小（行数与列数）
+        int[][] array = new int[sparseArray[0][0]][sparseArray[0][1]];
+
+        for(int i=1;i<sparseArray.length;i++){
+            array[sparseArray[i][0]][sparseArray[i][1]] = sparseArray[i][2];
+        }
+
+        return array;
+
     }
 }
