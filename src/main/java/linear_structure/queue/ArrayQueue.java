@@ -1,23 +1,23 @@
 package linear_structure.queue;
 
-//Ğ´Ò»¸ö¶ÓÁĞ(¶ÔÏó)
+//å†™ä¸€ä¸ªé˜Ÿåˆ—(å¯¹è±¡)
 public class ArrayQueue {
-    private int maxSize; //±íÊöÊı×éµÄ×î´óÈİÁ¿
-    private int head;//¶ÓÁĞÍ·£¬×ÜÊÇÖ¸Ïò¶ÔÍ·ÔªËØµÄÇ°Ò»¸ö
-    private int tail;//¶ÓÁĞÎ²£¬Ö¸Ïò×îºóÒ»¸öÔªËØ
-    private int[] arr;//Êı×é£¬´æ·ÅÊı¾İ£¬Ä£Äâ¶ÓÁĞ
+    private int maxSize; //è¡¨è¿°æ•°ç»„çš„æœ€å¤§å®¹é‡
+    private int head;//é˜Ÿåˆ—å¤´ï¼Œæ€»æ˜¯æŒ‡å‘å¯¹å¤´å…ƒç´ çš„å‰ä¸€ä¸ª
+    private int tail;//é˜Ÿåˆ—å°¾ï¼ŒæŒ‡å‘æœ€åä¸€ä¸ªå…ƒç´ 
+    private int[] arr;//æ•°ç»„ï¼Œå­˜æ”¾æ•°æ®ï¼Œæ¨¡æ‹Ÿé˜Ÿåˆ—
 
 
-    //¹¹ÔìÆ÷,ÊäÈë¶ÓÁĞµÄ ³¤¶È
+    //æ„é€ å™¨,è¾“å…¥é˜Ÿåˆ—çš„ é•¿åº¦
     public ArrayQueue(int MaxSize) {
-        //ÏÈ³õÊ¼»¯headÓëtailÖ¸Õë
+        //å…ˆåˆå§‹åŒ–headä¸tailæŒ‡é’ˆ
         this.maxSize = MaxSize;
         this.arr = new int[MaxSize];
         this.head = -1;
         this.tail = -1;
     }
 
-    //ÅĞ¶Ï¶ÓÁĞÊÇ·ñÒÑ¿Õ£¬µ±Í·Ö¸ÕëÓëÎ²Ö¸ÕëÏàµÈÊ±£¬¾ÍÈÏÎªÒÑ¿Õ
+    //åˆ¤æ–­é˜Ÿåˆ—æ˜¯å¦å·²ç©ºï¼Œå½“å¤´æŒ‡é’ˆä¸å°¾æŒ‡é’ˆç›¸ç­‰æ—¶ï¼Œå°±è®¤ä¸ºå·²ç©º
     public boolean isEmpty() {
         if (head == tail) {
             return true;
@@ -26,7 +26,7 @@ public class ArrayQueue {
         }
     }
 
-    //ÅĞ¶Ï¶ÓÁĞÊÇ·ñÒÑÂú£¬µ±Î²Ö¸ÕëµÈÓÚ×î´óÈİÁ¿¼õÒ»Ê±£¬¾ÍÈÏÎª¶ÓÁĞÒÑÂú£¨maxsize-1£©
+    //åˆ¤æ–­é˜Ÿåˆ—æ˜¯å¦å·²æ»¡ï¼Œå½“å°¾æŒ‡é’ˆç­‰äºæœ€å¤§å®¹é‡å‡ä¸€æ—¶ï¼Œå°±è®¤ä¸ºé˜Ÿåˆ—å·²æ»¡ï¼ˆmaxsize-1ï¼‰
     public boolean isFull() {
         if (tail == maxSize - 1) {
             return true;
@@ -35,30 +35,30 @@ public class ArrayQueue {
         }
     }
 
-    //Ìí¼ÓÊı¾İµ½¶ÓÁĞ
+    //æ·»åŠ æ•°æ®åˆ°é˜Ÿåˆ—
     public void addQueue(int n){
         if(isFull()){
-            System.out.println("¶ÓÁĞÒÑÂú£¬²»ÄÜ¼ÓÈëÊı¾İ");
+            System.out.println("é˜Ÿåˆ—å·²æ»¡ï¼Œä¸èƒ½åŠ å…¥æ•°æ®");
             return;
         }
-        //Î²Ö¸ÕëÏòºóÒÆ¶¯
+        //å°¾æŒ‡é’ˆå‘åç§»åŠ¨
         tail++;
         arr[tail] = n;
     }
 
-    //³ö¶ÓÁĞ
+    //å‡ºé˜Ÿåˆ—
     public int getQueue(){
         if(isEmpty()){
-            throw new RuntimeException("¶ÓÁĞ¿Õ£¬²»ÄÜÈ¡Êı¾İ");
+            throw new RuntimeException("é˜Ÿåˆ—ç©ºï¼Œä¸èƒ½å–æ•°æ®");
         }
-        head++;//ÓÉÓÚÍ·Ö¸ÕëÊÇÖ¸Ïò¶ÔÍ·Ç°Ò»Î»µÄ£¬ËùÒÔÒªÏÈºóÒÆÒ»Î»£¬ÔÙÈ¡Êı
+        head++;//ç”±äºå¤´æŒ‡é’ˆæ˜¯æŒ‡å‘å¯¹å¤´å‰ä¸€ä½çš„ï¼Œæ‰€ä»¥è¦å…ˆåç§»ä¸€ä½ï¼Œå†å–æ•°
         return arr[head];
     }
 
-    //ÏÔÊ¾¶ÓÁĞËùÓĞÔªËØ
+    //æ˜¾ç¤ºé˜Ÿåˆ—æ‰€æœ‰å…ƒç´ 
     public void showQueue(){
         if(isEmpty()){
-            System.out.println("¶ÓÁĞÒÑ¿Õ");
+            System.out.println("é˜Ÿåˆ—å·²ç©º");
             return;
         }
         for(int i = head+1;i<=tail;i++){
@@ -67,13 +67,19 @@ public class ArrayQueue {
 
     }
 
-    //ÏÔÊ¾Í·Êı¾İ£¬²»ÊÇÈ¡Êı£¬ËùÒÔÍ·Ö¸Õë²»ÓÃ¸Ä±ä
+    //æ˜¾ç¤ºå¤´æ•°æ®ï¼Œä¸æ˜¯å–æ•°ï¼Œæ‰€ä»¥å¤´æŒ‡é’ˆä¸ç”¨æ”¹å˜
     public int showHead(){
         if(isEmpty()){
-            throw new RuntimeException("¶ÓÁĞÒÑ¿Õ");
+            throw new RuntimeException("é˜Ÿåˆ—å·²ç©º");
         }
 
         return arr[head+1];
     }
 
+
+    //æ¸…ç©ºæ•°æ®
+    public void clear(){
+        head = -1;
+        tail = -1;
+    }
 }
