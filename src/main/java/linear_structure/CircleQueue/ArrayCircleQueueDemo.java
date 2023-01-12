@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class ArrayCircleQueueDemo {
     public static void main(String args[]){
         //创建一个大小为3的数列
-        ArrayCircleQueue queue = new ArrayCircleQueue(3);
+        ArrayCircleQueue queue = new ArrayCircleQueue(5);
 
         //接收用户的输入
         char key = ' ';
