@@ -1,66 +1,66 @@
 package linear_structure.CircleQueue;
 
-//ÓÃÊı×éÄ£ÄâÑ­»·ÊıÁĞ
+//ç”¨æ•°ç»„æ¨¡æ‹Ÿå¾ªç¯æ•°åˆ—
 public class ArrayCircleQueue {
 
     private int maxSize;
     private int head = 0;
     private int tail = 0;
-    private int[] arr;//Êı×é£¬´æ·ÅÊı¾İ£¬Ä£Äâ¶ÓÁĞ
+    private int[] arr;//æ•°ç»„ï¼Œå­˜æ”¾æ•°æ®ï¼Œæ¨¡æ‹Ÿé˜Ÿåˆ—
 
 
-    //¹¹Ôì·½·¨
-    //ÓÉÓÚÉèÖÃtailÖ¸ÕëÊÇ¶ÓÎ²ÔªËØµÄºóÒ»Î»£¬ËùÒÔ¶ÓÁĞÓÀÔ¶²»»áµ½´ïÊı×é×î´óÈİÁ¿£¨Êı×éµÄ×î´óÈİÁ¿¼õÒ»£©
+    //æ„é€ æ–¹æ³•
+    //ç”±äºè®¾ç½®tailæŒ‡é’ˆæ˜¯é˜Ÿå°¾å…ƒç´ çš„åä¸€ä½ï¼Œæ‰€ä»¥é˜Ÿåˆ—æ°¸è¿œä¸ä¼šåˆ°è¾¾æ•°ç»„æœ€å¤§å®¹é‡ï¼ˆæ•°ç»„çš„æœ€å¤§å®¹é‡å‡ä¸€ï¼‰
     public ArrayCircleQueue(int maxSize){
         this.maxSize = maxSize;
         arr = new int[maxSize];
     }
 
 
-    //ÅĞ¶ÏÊÇ·ñÎª¿Õ
+    //åˆ¤æ–­æ˜¯å¦ä¸ºç©º
     public boolean isEmpty(){
         return head == tail;
     }
 
 
-    //ÅĞ¶ÏÊÇ·ñÂú
+    //åˆ¤æ–­æ˜¯å¦æ»¡
     public boolean isFull(){
         return (tail + 1) % maxSize == head;
     }
 
-    //Èë¶ÓÁĞ
+    //å…¥é˜Ÿåˆ—
     public void addQueue(int n){
         if(isFull()){
-            System.out.println("¶ÓÁĞÒÑÂú£¬²»ÄÜ¼ÓÈëÊı¾İ");
+            System.out.println("é˜Ÿåˆ—å·²æ»¡ï¼Œä¸èƒ½åŠ å…¥æ•°æ®");
             return;
         }
 
         arr[tail] = n;
-        //½«tailºóÒÆ£¬È¡Ä£
+        //å°†tailåç§»ï¼Œå–æ¨¡
         tail = (tail+1) % maxSize;
 
     }
 
-    //³ö¶ÓÁĞ
+    //å‡ºé˜Ÿåˆ—
     public int getQueue(){
         if(isEmpty()){
-            throw  new RuntimeException("¶ÓÁĞ¿Õ£¬ÎŞÊı¾İ");
+            throw  new RuntimeException("é˜Ÿåˆ—ç©ºï¼Œæ— æ•°æ®");
         }
         int value = arr[head];
-        //½«headÖ¸ÕëºóÒÆ
+        //å°†headæŒ‡é’ˆåç§»
         head = (head + 1) % maxSize;
         return value;
     }
 
-    //Çóµ±Ç°¶ÓÁĞµÄÔªËØ¸öÊı
+    //æ±‚å½“å‰é˜Ÿåˆ—çš„å…ƒç´ ä¸ªæ•°
     public int size(){
         return (tail + maxSize - head) % maxSize;
     }
 
-    //ÏÔÊ¾ËùÒÔÔªËØ
+    //æ˜¾ç¤ºæ‰€ä»¥å…ƒç´ 
     public void showQueue(){
         if(isEmpty()){
-            System.out.println("¶ÓÁĞÊÇ¿ÕµÄ");
+            System.out.println("é˜Ÿåˆ—æ˜¯ç©ºçš„");
             return;
         }
 
@@ -70,10 +70,10 @@ public class ArrayCircleQueue {
 
     }
 
-    //ÏÔÊ¾Í·ÔªËØ
+    //æ˜¾ç¤ºå¤´å…ƒç´ 
     public int headQueue(){
         if(isEmpty()){
-            throw new RuntimeException("¶ÓÁĞÊÇ¿ÕµÄ");
+            throw new RuntimeException("é˜Ÿåˆ—æ˜¯ç©ºçš„");
 
         }
         return arr[head];
