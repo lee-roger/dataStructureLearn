@@ -1,4 +1,4 @@
-package linear_structure.queue;
+package linear_structure.Queue;
 
 //写一个队列(对象)
 public class ArrayQueue {

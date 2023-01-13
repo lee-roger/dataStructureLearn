@@ -1,4 +1,4 @@
-package linear_structure.queue;
+package linear_structure.Queue;
 
 
 import java.util.Scanner;
