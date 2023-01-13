@@ -1,44 +1,76 @@
 package linear_structure.LinkedList;
 
 
-//Á´±í
+//é“¾è¡¨
 public class LinkedList {
-    //³õÊ¼Ò»¸öÍ·½áµã
+    //åˆå§‹ä¸€ä¸ªå¤´ç»“ç‚¹
     private Node head = new Node(-1);
 
-    //Ìí¼Ó½Úµã
+    //æ·»åŠ èŠ‚ç‚¹,éšä¾¿åŠ 
     public void add(int n){
-        //Ò»¸ö¸¨Öú½Úµã
+        //ä¸€ä¸ªè¾…åŠ©èŠ‚ç‚¹
         Node temp = head;
 
-        //³õÊ¼µ±Ç°µÄµÄ½Úµã
+        //åˆå§‹å½“å‰çš„çš„èŠ‚ç‚¹
         Node now = new Node(n);
 
-        //±éÀúµ½Á´±íµÄÎ²²¿£¬È»ºó²åÈëµ±Ç°µÄ½Úµã
+        //éå†åˆ°é“¾è¡¨çš„å°¾éƒ¨ï¼Œç„¶åæ’å…¥å½“å‰çš„èŠ‚ç‚¹
         while(true){
             if(temp.next == null){
                 break;
             }else{
-                //Èç¹û²»ÊÇ×îºóÒ»¸ö£¬ÔòÍùºóÒÆ
+                //å¦‚æœä¸æ˜¯æœ€åä¸€ä¸ªï¼Œåˆ™å¾€åç§»
                 temp = temp.next;
             }
         }
 
-        //²åÈë½Úµã(ÒòÎªµ±Ç°½Úµã¾ÍÊÇ×îºóÒ»Î»ÁË)
+        //æ’å…¥èŠ‚ç‚¹(å› ä¸ºå½“å‰èŠ‚ç‚¹å°±æ˜¯æœ€åä¸€ä½äº†)
         temp.next = now;
 
     }
 
-    //±éÀúÁ´±í
+    //æŒ‰ç…§å¤§å°è¿›è¡Œæ’å…¥ï¼Œä¸é‡å¤,ä»å¤§åˆ°å°æ’
+    public void addByOder(int n){
+         Node temp = head;
+         boolean flag = false;//æ˜¯å¦å·²ç»é‡å¤äº†
+
+        Node now = new Node(n);
+
+        while(true){
+            if(temp.next == null){
+                //å·²ç»åˆ°é“¾è¡¨å°¾äº†
+                break;
+            }else if(temp.next.data == n){
+                //è¯´æ˜æœ‰é‡å¤å…ƒç´ äº†ï¼Œä¸æ’å…¥
+                flag = true;
+                break;
+            }else if(temp.next.data < n){
+                break;
+            }
+            temp = temp.next;
+        }
+
+        if(flag){
+            System.out.println("å·²ç»æœ‰è¯¥èŠ‚ç‚¹äº†ï¼Œä¸èƒ½æ’å…¥");
+        }else{
+            now.next = temp.next;
+            temp.next = now;
+        }
+
+    }
+
+    //éå†é“¾è¡¨
     public void list(){
         Node temp = head.next;
+        System.out.print("head ->");
 
         while(true){
             if(temp == null){
                 System.out.print(" null");
-                break;//×îºóÁË£¬ÍË³öÑ­»·
+                break;//æœ€åäº†ï¼Œé€€å‡ºå¾ªç¯
             }else{
-                System.out.printf("%d ->",temp.data);
+                System.out.printf(" %d ->",temp.data);
+                temp = temp.next;
             }
         }
     }

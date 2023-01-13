@@ -1,11 +1,11 @@
 package linear_structure.LinkedList;
 
-//每个节点
+//姣忎釜鑺傜偣
 public class Node {
     public int data;
     public Node next;
 
-    //构造器
+    //鏋勯�犲櫒
     public Node(int data){
         this.data = data;
     }
