@@ -20,8 +20,7 @@ public class LinkedListTest {
             System.out.println("e(exit):退出程序");
             System.out.println("a(add):添加数据到链表");
             System.out.println("o(addByOrder):从大到小插入链表");
-            System.out.println("h(head):查看队列头");
-            System.out.println("c(clear):清空队列");
+            System.out.println("d(delete):删除某个节点");
             System.out.println("请输入选择");
             key = scanner.next().charAt(0);
             switch (key) {
@@ -42,6 +41,12 @@ public class LinkedListTest {
                     System.out.println("输入一个数");
                     int value2 = scanner.nextInt();
                     linkedList.addByOder(value2);
+                    break;
+
+                case 'd':
+                    System.out.println("输入要删除数");
+                    int value3 = scanner.nextInt();
+                    linkedList.delete(value3);
                     break;
 
                 default:

@@ -74,4 +74,33 @@ public class LinkedList {
             }
         }
     }
+
+    //删除节点
+    public void delete(int n){
+        Node temp = head;
+        boolean flag = false;
+
+        //找要删除的前一个节点
+        while(true){
+            if(temp.next == null){
+                //到队尾了，且没找到
+                break;
+            }else if(temp.next.data == n){
+                //找到了要删除节点的前一个
+                flag = true;
+                break;
+            }
+            temp = temp.next;
+        }
+
+        if(flag){
+            //删除某个节点
+            temp.next = temp.next.next;
+            System.out.println("删除成功");
+        }else{
+            System.out.println("无该节点");
+        }
+    }
 }
+
+
