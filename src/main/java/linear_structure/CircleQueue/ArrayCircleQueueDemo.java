@@ -1,7 +1,5 @@
 package linear_structure.CircleQueue;
 
-import linear_structure.queue.ArrayQueue;
-
 import java.util.Scanner;
 
 public class ArrayCircleQueueDemo {
